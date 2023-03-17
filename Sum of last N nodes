@@ -1,0 +1,28 @@
+int sumOfLastN_Nodes(struct Node* head, int n)
+{
+    // algo:
+    // 1. find length of LL
+    // 2. traverse a temp node to  M = length-n
+    // 3. while temp is not NULL : sum += temp->data;
+    int sum = 0, len = 0;
+    Node* temp = head;
+    while(temp != NULL){
+        len++;
+        temp = temp->next;   // calc length of LL
+    }
+    
+    int M = len-n;
+    temp = head;
+    
+    while(M--){
+        temp = temp->next;
+    }
+    
+    while(temp != NULL){
+        
+        sum += temp->data;
+        temp = temp->next;
+    }
+    
+        return sum;
+}

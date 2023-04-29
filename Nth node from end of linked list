@@ -1,0 +1,19 @@
+int getNthFromLast(Node *head, int n)
+{
+      int len = 0, lastNode;
+      Node *it = head;
+    //   1. get the len of LL
+    while(it){
+        it = it->next;
+        len++;
+    }
+    if(n > len) return -1;
+   
+    lastNode = (len-n) + 1; // taking 1 based indexing
+    it = head; 
+    while(--lastNode){
+        it = it->next;
+    }
+    
+    return it->data;
+}

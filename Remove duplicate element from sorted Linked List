@@ -1,0 +1,15 @@
+Node *removeDuplicates(Node *head)
+{
+ Node *curr = head, *helper;
+
+while(curr->next){
+    if(curr->data == curr->next->data){
+        helper = curr->next;
+        curr->next = curr->next->next;
+        delete helper;     // destroying the connection of same node
+    }
+    else curr = curr->next;
+}
+ 
+ return head;
+}
